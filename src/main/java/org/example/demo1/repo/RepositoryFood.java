@@ -1,0 +1,22 @@
+package org.example.demo1.repo;
+
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+
+import java.util.List;
+
+public interface RepositoryFood extends JpaRepository<Food, Long> {
+
+    @Query("SELECT f FROM Food f WHERE f.category = 'Pastries'")
+    List<Food> findPastries();
+
+    @Query("SELECT f FROM Food f WHERE f.category = 'Breakfast'")
+    List<Food> findBreakfast();
+
+    @Query("SELECT f FROM Food f WHERE f.category = 'Cakes'")
+    List<Food> findCakes();
+
+    @Query("SELECT f FROM Food f WHERE f.category = 'Desserts'")
+    List<Food> findDesserts();
+}

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Order Confirmation</title>
+    <style>
+        .order-summary {
+            width: 50%;
+            margin: auto;
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        .order-summary h2 {
+            text-align: center;
+            color: #00aaff;
+        }
+        .order-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        .order-item span {
+            width: 200px;
+            display: inline-block;
+        }
+        .order-item span.price {
+            text-align: right;
+        }
+        .confirm-button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #00aaff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        .confirm-button:hover {
+            background-color: #0088cc;
+        }
+        .user-details {
+            margin-top: 20px;
+        }
+        .user-details label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .user-details input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+<div class="order-summary">
+    <h2>Order Confirmation</h2>
+    <div th:each="orderItem : ${cart.foodOrders}" class="order-item">
+        <span th:text="${orderItem.food.name}"></span>
+        <span th:text="${orderItem.quantity}"></span>
+        <span th:text="${orderItem.food.price} * ${orderItem.quantity}" class="price"></span>
+    </div>
+    <div class="order-item">
+        <span>Total:</span>
+        <span th:text="${total}"></span>
+    </div>
+    <form action="/confirm-order" method="post">
+        <div class="user-details">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="phone">Phone Number:</label>
+            <input type="text" id="phone" name="phone" required>
+
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email" required>
+
+            <label for="city">City:</label>
+            <input type="text" id="city" name="city" required>
+            <label for="street">Street:</label>
+            <input type="text" id="street" name="street" required>
+            <label for="houseNumber">House Number:</label>
+            <input type="text" id="houseNumber" name="houseNumber" required>
+        </div>
+        <button type="submit" class="confirm-button">Confirm Order</button>
+    </form>
+</div>
+</body>
+</html>
