@@ -31,6 +31,15 @@ public class MenuInitializer implements CommandLineRunner {
             repositoryFood.save(new Food(16L,"White Chocolate Carrot Cake", "Desserts",35));
             repositoryFood.save(new Food(17L,"Red Volt", "Desserts",35));
             repositoryFood.save(new Food(18L,"A Strip of seven Macarons", "Desserts",65));
+            repositoryFood.save(new Food(19L,"Espresso", "HotDrinks",9));
+            repositoryFood.save(new Food(20L,"Americano", "HotDrinks",12));
+            repositoryFood.save(new Food(21L,"Hot Chocolate", "HotDrinks",17));
+            repositoryFood.save(new Food(22L,"Cold Americano", "ColdDrinks",15));
+            repositoryFood.save(new Food(23L,"Cold Chocolate Drink", "ColdDrinks",13));
+            repositoryFood.save(new Food(24L,"Water", "SoftDrinks",9));
+            repositoryFood.save(new Food(25L,"Soda", "SoftDrinks",9));
+            repositoryFood.save(new Food(26L,"Orange Juice", "FreshJuices",18));
+            repositoryFood.save(new Food(27L,"Carrot Juice", "FreshJuices",18));
         }
     }
 }

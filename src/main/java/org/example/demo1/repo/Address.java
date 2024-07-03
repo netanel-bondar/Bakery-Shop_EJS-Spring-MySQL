@@ -19,14 +19,13 @@ public class Address implements Serializable {
     private long id;
 
     @NotEmpty
-    private String city, street, houseNumber;
+    private String city, street;
 
     public Address() {}
 
-    public Address(String city, String street, String houseNumber) {
+    public Address(String city, String street) {
         this.city = city;
         this.street = street;
-        this.houseNumber = houseNumber;
     }
 
     public void setCity(String city) {
@@ -49,20 +48,10 @@ public class Address implements Serializable {
         return street;
     }
 
-    public void setHouseNumber(String houseNumber) {
-
-        checkString(houseNumber);
-        this.houseNumber = houseNumber;
-    }
-
-    public String getHouseNumber() {
-        return houseNumber;
-    }
 
     public void checkAddress() {
         checkString(this.city);
         checkString(this.street);
-        checkString(this.houseNumber);
     }
 
     private void checkString(String string) {
@@ -73,6 +62,6 @@ public class Address implements Serializable {
 
     @Override
     public String toString() {
-        return "address [city=" + this.city + ", street=" + this.street + ", houseNumber=" + this.houseNumber + "]";
+        return "address [city=" + this.city + ", street=" + this.street + "]";
     }
 }

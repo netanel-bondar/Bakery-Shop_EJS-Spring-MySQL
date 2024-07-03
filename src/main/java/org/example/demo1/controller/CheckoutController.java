@@ -36,7 +36,7 @@ public class CheckoutController {
     @PostMapping("/confirm-order")
     public String completeOrder(@RequestParam String name, @RequestParam String phone,
                                 @RequestParam String email, @RequestParam String city,
-                                @RequestParam String street, @RequestParam String houseNumber) {
+                                @RequestParam String street, Model model) {
 
         List<FoodOrder> onlineOrders = cart.getFoodOrders();
         repositoryFoodOrder.saveAll(onlineOrders);
@@ -45,7 +45,7 @@ public class CheckoutController {
         try {
             OnlineDelivery onlineDelivery = new OnlineDelivery();
             onlineDelivery.setFoodOrders(onlineOrders);
-            onlineDelivery.setAddress(new Address(city, street, houseNumber));
+            onlineDelivery.setAddress(new Address(city, street));
             repositoryOnlineDelivery.save(onlineDelivery);
 
             User user = new User();
@@ -54,13 +54,15 @@ public class CheckoutController {
             user.setOnlineDelivery(onlineDelivery);
             user.setEmail(email);
             repositoryUser.save(user);
+
+            cart.clear();
+            model.addAttribute("name", name);
+            model.addAttribute("orderId", onlineDelivery.getId());
+            return "orderSuccess";
         }
         catch (Exception e) {
             System.out.println(e.getMessage());
             return "error";
         }
-
-        cart.clear();
-        return "orderSuccess";
     }
 }

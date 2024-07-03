@@ -40,6 +40,18 @@ public class Cart implements Serializable {
         foodOrders.add(new FoodOrder(food, 1));
     }
 
+    public void removeItem(Food food) {
+        for (FoodOrder foodOrder : foodOrders) {
+            if (foodOrder.getFood().getId().equals(food.getId())) {
+                foodOrder.setQuantity(foodOrder.getQuantity() - 1);
+                if (foodOrder.getQuantity() == 0) {
+                    foodOrders.remove(foodOrder); // Remove from list if quantity is zero
+                }
+                return;
+            }
+        }
+    }
+
     public void clear() {
         foodOrders.clear();
     }
