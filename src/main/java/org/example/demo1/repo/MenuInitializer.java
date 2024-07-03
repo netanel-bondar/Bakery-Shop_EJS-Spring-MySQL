@@ -13,13 +13,13 @@ public class MenuInitializer implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         if (repositoryFood.count() == 0) {
-            repositoryFood.save(new Food(1L,"Butter Corason", "Pastries", 30));
-            repositoryFood.save(new Food(2L,"Chocolate Corason", "Pastries", 31));
+            repositoryFood.save(new Food(1L,"Butter Croissant", "Pastries", 30));
+            repositoryFood.save(new Food(2L,"Chocolate croissant", "Pastries", 31));
             repositoryFood.save(new Food(3L,"Eclair", "Pastries",17));
             repositoryFood.save(new Food(4L,"Cinnamon Roll", "Pastries",29));
             repositoryFood.save(new Food(5L,"Tart - varies according to the season", "Pastries",45));
-            repositoryFood.save(new Food(6L,"A Dreamy Morning shakshuka", "Breakfast",55));
-            repositoryFood.save(new Food(7L,"Scrambled egg Corason", "Breakfast",48));
+            repositoryFood.save(new Food(6L,"A Dreamy Morning Shakshuka", "Breakfast",55));
+            repositoryFood.save(new Food(7L,"Scrambled egg Croissant", "Breakfast",48));
             repositoryFood.save(new Food(8L,"Corruption Toast", "Breakfast",48));
             repositoryFood.save(new Food(9L,"Pancake Lighthouse", "Breakfast",50));
             repositoryFood.save(new Food(10L,"Heart shaped chocolate cake", "Cakes",95));

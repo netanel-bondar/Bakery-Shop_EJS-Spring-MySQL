@@ -37,35 +37,48 @@
         .checkout-button:hover {
             background-color: #0088cc;
         }
+        .order-mode-button {
+            background-color: #ffaa00;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        .order-mode-button:hover {
+            background-color: #cc8800;
+        }
     </style>
 </head>
 <body>
+<div>
+    <button class="order-mode-button" onclick="location.href='/menu/true'">Enter Order Mode</button>
+</div>
 <div class="menu-section">
     <h2>Pastries</h2>
     <div class="menu-item" th:each="food : ${pastries}">
         <span th:text="${food.name}"></span> - <span th:text="${food.price}"></span>
-        <button th:attr="data-id=${food.id}" th:onClick="addToCart(this)">Add to cart</button>
+        <button th:attr="data-id=${food.id}" th:if="${isOrder}" th:onClick="addToCart(this)">Add to cart</button>
     </div>
 </div>
 <div class="menu-section">
     <h2>Breakfast</h2>
     <div class="menu-item" th:each="food : ${breakfast}">
         <span th:text="${food.name}"></span> - <span th:text="${food.price}"></span>
-        <button th:attr="data-id=${food.id}" th:onClick="addToCart(this)">Add to cart</button>
+        <button th:attr="data-id=${food.id}" th:if="${isOrder}" th:onClick="addToCart(this)">Add to cart</button>
     </div>
 </div>
 <div class="menu-section">
     <h2>Cakes</h2>
     <div class="menu-item" th:each="food : ${cakes}">
         <span th:text="${food.name}"></span> - <span th:text="${food.price}"></span>
-        <button th:attr="data-id=${food.id}" th:onClick="addToCart(this)">Add to cart</button>
+        <button th:attr="data-id=${food.id}" th:if="${isOrder}" th:onClick="addToCart(this)">Add to cart</button>
     </div>
 </div>
 <div class="menu-section">
     <h2>Desserts</h2>
     <div class="menu-item" th:each="food : ${desserts}">
         <span th:text="${food.name}"></span> - <span th:text="${food.price}"></span>
-        <button th:attr="data-id=${food.id}" th:onClick="addToCart(this)">Add to cart</button>
+        <button th:attr="data-id=${food.id}" th:if="${isOrder}" th:onClick="addToCart(this)">Add to cart</button>
     </div>
 </div>
 <div>

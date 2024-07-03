@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <title>hadarim bakery</title>
+
+</head>
+<body>
+
+    <div class="d-flex justify-content-center align-items-center text-center bg-warning-subtle"> 
+        <span class="container p-4 m-5 bg-body text-emphasis border border-info">
+            <div class="fst-italic fs-1 fw-bold text-info">MENU</div>
+            <div class=" row">
+                    <div class = "col m-6">
+                            <h5 class="mb-0 text-info">Pastries</h5>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Butter Corason </br> 30 </br>
+                                <button class="btn btn-outline-warning mt-2" type="submit" onclick="DOMEventsHandlers.onClickHome()">Add to cart</button>
+                                </li>            
+
+                                <li class="list-group-item">Chocolate Corason </br> 31 </li>
+                                <li class="list-group-item">Eclair </br> 17 </li>
+                                <li class="list-group-item">Cinnamon Roll </br> 29 </li>
+                                <li class="list-group-item">Tart - varies according to the season </br> 45 </li>
+                            </ul>
+                    </div>
+                    <div class = "col m-6">
+                        <h5 class="mb-0 text-info">Breakfast</h5>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">A Dreamy Morning shakshuka</br>55</li>
+                            <li class="list-group-item">Scrambled egg Corason</br>48</li>
+                            <li class="list-group-item">Corruption Toast</br>48</li>
+                            <li class="list-group-item">Pancake Lighthouse</br>50</li>
+                        </ul>
+                    </div>               
+            </div>
+            <div class=" row">
+                    <div class = "col m-6">
+                        <h5 class="mb-0 mt-5 text-info">Cakes</h5>
+                         <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Heart shaped chocolate cake</br>95 </li>
+                            <li class="list-group-item">Birthday cake</br>255</li>
+                            <li class="list-group-item">Festive cheesecake</br>290 </li>
+                            <li class="list-group-item">Saint Honore cake</br>180 </li>
+                        </ul>       
+                    </div>
+                    <div class = "col m-6">
+                        <h5 class="mb-0 mt-5 text-info">Desserts</h5>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Lemon Tart </br> 42</li>
+                            <li class="list-group-item">Pecan Pie </br>42 </li>
+                            <li class="list-group-item">White Chocolate Carrot Cake </br>35 </li>
+                            <li class="list-group-item">Red Volt </br> 35</li>
+                            <li class="list-group-item">A Strip of seven Macarons </br> 65 </li>
+                        </ul>
+                    </div>              
+            </div>
+            <div class=" row">
+                <div class = "col m-6">
+                        <h5 class="mb-0 mt-5 text-info">Drinks</h5>
+                        <div class="card-body">
+                            <h6 class="card-subtitle mb-2 text-muted mt-2">Hot Drinks</h6>
+                            <ul class="list-group list-group-flush mb-3">
+                                <li class="list-group-item">Espresso</li>
+                                <li class="list-group-item">Cappuccino</li>
+                                <li class="list-group-item">Americano</li>
+                                <li class="list-group-item">Hot Chocolate</li>
+                            </ul>
+
+                            <h6 class="card-subtitle mb-2 text-muted mt-4">Cold Drinks</h6>
+                            <ul class="list-group list-group-flush mb-3">
+                                <li class="list-group-item">Cold Americano</li>
+                                <li class="list-group-item">Cold Coffee</li>
+                                <li class="list-group-item">Cold Chocolate Drink</li>
+                            </ul>
+
+                            <h6 class="card-subtitle mb-2 text-muted mt-4">Soft Drinks</h6>
+                            <ul class="list-group list-group-flush mb-3">
+                                <li class="list-group-item">Water</li>
+                                <li class="list-group-item">Soda</li>
+                                <li class="list-group-item">Cola Zero</li>
+                                <li class="list-group-item">Cola</li>
+                            </ul>
+
+                            <h6 class="card-subtitle mb-2 text-muted mt-4">Fresh Juices</h6>
+                            <ul class="list-group list-group-flush mb-3">
+                                <li class="list-group-item">Squeezed Orange Juice</li>
+                                <li class="list-group-item">Carrot Juice</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                    <button class="btn btn-warning mt-2" type="submit" onclick="DOMEventsHandlers.onClickHome()">Checkout</button>
+            </div> 
+        </span>
+    </div>
+
+     <div class="d-flex justify-content-center align-items-center text-center bg-primary-subtle"> 
+        <span class="container p-4 m-5 bg-body text-emphasis border border-warning">
+            <div class = "row">
+                <div class="fst-italic fs-1 fw-bold text-primary">Checkout</div>
+                <div class="col">
+                    <h5 class="mx-5 text-warning">Billing details</h5>
+                    <form class="row g-3">
+                        <div class="col-md-6">
+                            <label for="FirstName" class="form-label">First Name</label>
+                            <input type="text" class="form-control" id="FirstName">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="Last Name" class="form-label">Last Name</label>
+                            <input type="text" class="form-control" id="Last Name">
+                        </div>
+                        <div class="col-12">
+                            <label for="inputEmail4" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="inputEmail4">
+                        </div>
+                        <div class="col-12">
+                            <label for="Phone Number" class="form-label">Phone Number</label>
+                            <input type="number" class="form-control" id="Phone Number">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="inputAddress" class="form-label">Address</label>
+                            <input type="text" class="form-control" id="inputAddress">
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="inputCity" class="form-label">City</label>
+                            <input type="text" class="form-control" id="inputCity">
+                        </div>
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-primary">Complete the order</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="col">
+                    <h5 class="mx-5 text-warning">Order details</h5>
+                    <div class="p-2">
+                        Red Volt </br> 35 </br>
+                        A Strip of seven Macarons </br> 65 </br>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Back to manu</button>
+                </div>
+            </div>
+        </span>
+    </div>
+  
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<script src="./script.js"></script>
+</body>
+</html>

@@ -17,18 +17,20 @@ public class MenuController {
     @Autowired
     private Cart cart;
 
-    @GetMapping("/menu")
-    public String showMenu(Model model) {
+    @GetMapping("/menu/{isOrder}")
+    public String showMenu(@PathVariable boolean isOrder, Model model) {
         model.addAttribute("pastries", repositoryFood.findPastries());
         model.addAttribute("breakfast", repositoryFood.findBreakfast());
         model.addAttribute("cakes", repositoryFood.findCakes());
         model.addAttribute("desserts", repositoryFood.findDesserts());
 
+        model.addAttribute("isOrder", isOrder);
+
         return "menu";
     }
 
     @PostMapping("/add-to-cart/{id}")
-    public String addToCart(@PathVariable Long id) {
+    public String addToCart(@PathVariable Long id, Model model) {
 
         Food food = repositoryFood.findById(id).orElse(null);
 
@@ -37,7 +39,9 @@ public class MenuController {
         }
 
         cart.addItem(food);
+        
+        model.addAttribute("isOrder", true);
 
-        return "redirect:/menu";
+        return "menu";
     }
 }
