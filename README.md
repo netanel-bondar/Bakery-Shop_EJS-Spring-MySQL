@@ -1,4 +1,4 @@
-[Recording demo of the website](Hadarim-Bakery.mp4)
+[Recording demo of the website](Hadarim-Bakery.mp4)<br>
 [index.html](api/index.html)
 
 # The general functionality of the website
