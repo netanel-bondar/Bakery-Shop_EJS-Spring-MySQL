@@ -44,11 +44,13 @@ public class CheckoutController {
                                 @RequestParam String street, Model model) {
 
         List<FoodOrder> onlineOrders = cart.getFoodOrders();
-        repositoryFoodOrder.saveAll(onlineOrders);
 
         // check for validation errors
         try {
             synchronized (RepositoryUser.class) {
+
+                repositoryFoodOrder.saveAll(onlineOrders);
+
                 OnlineDelivery onlineDelivery = new OnlineDelivery().setFoodOrders(onlineOrders).
                         setAddress(new Address(city, street));
 
