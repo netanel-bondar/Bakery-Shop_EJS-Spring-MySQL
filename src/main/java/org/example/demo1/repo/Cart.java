@@ -8,6 +8,9 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * the cart which will hold for each session list of foods the user wants to make and online delivery of
+ */
 @Component
 @Scope(value = "session", proxyMode = ScopedProxyMode.TARGET_CLASS)
 public class Cart implements Serializable {
@@ -28,6 +31,9 @@ public class Cart implements Serializable {
         return foodOrdersCopy;
     }
 
+    /**
+     * add a new food to the food list, if the food already in the cart, add its quantity
+     */
     public void addItem(Food food) {
 
         for (FoodOrder foodOrder : foodOrders) {
@@ -40,6 +46,9 @@ public class Cart implements Serializable {
         foodOrders.add(new FoodOrder(food, 1));
     }
 
+    /**
+     * remove the food from the cart. if there are more than one of the food than decrease the quantity
+     */
     public void removeItem(Food food) {
         for (FoodOrder foodOrder : foodOrders) {
             if (foodOrder.getFood().getId().equals(food.getId())) {
@@ -56,6 +65,9 @@ public class Cart implements Serializable {
         foodOrders.clear();
     }
 
+    /**
+     * @return the total payment for the order
+     */
     public int paymentSum() {
         int sum = 0;
         for (FoodOrder item : foodOrders) {

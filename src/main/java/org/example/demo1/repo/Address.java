@@ -9,7 +9,7 @@ import jakarta.validation.constraints.NotEmpty;
 import java.io.Serializable;
 
 /**
- * Holds city, street name and house number
+ * Holds city and street name
  */
 @Entity
 public class Address implements Serializable {

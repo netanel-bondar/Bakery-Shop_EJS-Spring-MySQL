@@ -7,6 +7,9 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.PositiveOrZero;
 import java.io.Serializable;
 
+/**
+ * represents the foods in the menu.
+ */
 @Entity
 public class Food implements Serializable {
 

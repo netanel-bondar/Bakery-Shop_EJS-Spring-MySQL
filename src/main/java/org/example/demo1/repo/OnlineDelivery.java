@@ -6,6 +6,9 @@ import jakarta.persistence.*;
 import java.io.Serializable;
 import java.util.List;
 
+/**
+ * holds list of {@link FoodOrder} instances.
+ */
 @Entity
 public class OnlineDelivery implements Serializable {
 

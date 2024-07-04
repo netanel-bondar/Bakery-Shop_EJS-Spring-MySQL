@@ -6,6 +6,9 @@ import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
+/**
+ * the database which holds the queries the {@link Food} entity.
+ */
 public interface RepositoryFood extends JpaRepository<Food, Long> {
 
     @Query("SELECT f FROM Food f WHERE f.category = 'Pastries'")

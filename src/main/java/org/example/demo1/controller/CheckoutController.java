@@ -10,6 +10,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
+/**
+ * the controller which is responsible for the checkout (after the user done with adding food to the cart)\n
+ * and the order confirmation page
+ */
 @Controller
 public class CheckoutController {
 
@@ -25,6 +29,10 @@ public class CheckoutController {
     @Autowired
     private RepositoryFoodOrder repositoryFoodOrder;
 
+    /**
+     * opens the checkout page with the total payment of the cart anf user details input.
+     * if the cart is empty the user get send back to the menu page.
+     */
     @GetMapping("/checkout")
     public String showCheckoutPage(Model model) {
 
@@ -38,6 +46,11 @@ public class CheckoutController {
         return "orderConfirmation";
     }
 
+    /**
+     * saves the foods array, online delivery and user to the appropriate tables,
+     * empties the cart and move to the order success page.
+     * if there are validation errors move to the error page.
+     */
     @PostMapping("/confirm-order")
     public String completeOrder(@RequestParam String name, @RequestParam String phone,
                                 @RequestParam String email, @RequestParam String city,

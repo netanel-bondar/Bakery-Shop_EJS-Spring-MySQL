@@ -8,6 +8,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * this class runs as the application starts.
+ * build the menu data base (food name, category and price).
+ */
 @Component
 public class MenuInitializer implements CommandLineRunner {
 

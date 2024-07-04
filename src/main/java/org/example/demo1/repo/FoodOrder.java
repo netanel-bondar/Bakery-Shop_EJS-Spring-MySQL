@@ -5,6 +5,9 @@ import jakarta.validation.constraints.Positive;
 
 import java.io.Serializable;
 
+/**
+ * holds a food item from the menu and its quantity
+ */
 @Entity
 public class FoodOrder implements Serializable {
 
