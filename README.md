@@ -1,4 +1,4 @@
-[Recording demo of the website](main/Hadarim-Bakery.mp4)
+[Recording demo of the website](Hadarim-Bakery.mp4)
 
 # The general functionality of the website
 The website represents a bakery shop with various kinds of foods like pastris, cakes drinks etc.
