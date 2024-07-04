@@ -108,7 +108,6 @@ public class MenuInitializer implements CommandLineRunner {
         foodNames.add("Corruption Toast");
         foodNames.add("Pancake Lighthouse");
         foodNames.add("Heart shaped chocolate cake");
-        foodNames.add("Heart shaped chocolate cake");
         foodNames.add("Birthday cake");
         foodNames.add("Festive cheesecake");
         foodNames.add("Saint Honore cake");
@@ -122,6 +121,7 @@ public class MenuInitializer implements CommandLineRunner {
         foodNames.add("Hot Chocolate");
         foodNames.add("Cold Americano");
         foodNames.add("Cold Chocolate Drink");
+        foodNames.add("Water");
         foodNames.add("Soda");
         foodNames.add("Orange Juice");
         foodNames.add("Carrot Juice");

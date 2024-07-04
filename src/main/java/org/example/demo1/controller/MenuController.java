@@ -47,6 +47,7 @@ public class MenuController {
         model.addAttribute("cart", cart);
 
         model.addAttribute("foodOrders", cart.getFoodOrders());
+        model.addAttribute("isCartEmpty", cart.getFoodOrders().isEmpty());
 
         model.addAttribute("isOrder", true);
 

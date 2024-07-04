@@ -5,31 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles.css">
     <title>Order Confirmation</title>
 </head>
 <body>
-    <nav class="navbar mx-auto bg-body">
-        <div class="container-fluid navbar-collapse">
-            <div class="d-flex justify-content-center w-100">
-                <a class="navbar-brand" href="#">
-                    <img src="logo.png" alt="Logo">
-                </a>
-            </div>
-            <button class="btn btn-info mx-1" type="button" onclick="window.location.href='/menu'">Menu</button>
-            <button class="btn btn-info mx-1" type="button" onclick="window.location.href='/orders'">Orders</button>
-            <button class="btn btn-info mx-1" type="button" onclick="window.location.href='/reservation'">Reservation</button>
-            <div class="d-flex align-items-center ml-auto">
-                <a class="navbar-brand py-3" href="#">
-                    <img src="house-emoji.png" onclick="window.location.href='/'" width="30" height="30" alt="">
-                </a>
-                <button class="btn btn-outline-info mx-1" type="button" data-bs-toggle="modal" data-bs-target="#dialog">Contact Us</button>
-            </div>
+<nav class="navbar mx-auto bg-body">
+    <div class="container-fluid navbar-collapse">
+        <div class="d-flex justify-content-center w-100">
+            <a class="navbar-brand" href="#">
+                <img src="../pictures/logo.png" alt="Logo">
+            </a>
         </div>
-    </nav>
-    <div class="d-flex justify-content-center align-items-center text-center bg-primary-subtle">
+        <button class="btn btn-info mx-1" type="button" onclick="window.location.href='/menu'">Menu</button>
+        <button class="btn btn-info mx-1" type="button" onclick="window.location.href='/orders'">Orders</button>
+        <div class="d-flex align-items-center ml-auto">
+            <a class="navbar-brand py-3" href="#">
+                <img src="../pictures/house-emoji.png" onclick="window.location.href='/'" width="30" height="30" alt="">
+            </a>
+            <a class="navbar-brand py-3" href="#">
+                <img src="../pictures/cart.png" onclick="location.href='/checkout'" width="30" height="30" alt="">
+            </a>
+            <button class="btn btn-outline-info mx-1" type="button" data-toggle="modal" data-target="#contactModal">Contact Us</button>
+        </div>
+    </div>
+</nav>
+    <div class="d-flex justify-content-center align-items-center text-center bg-primary-subtle" style="background-image: url('/pictures/bg-Checkout.png'); background-size: cover; background-position: center;">
         <span class="container p-4 m-5 bg-body text-emphasis border border-warning">
             <div class="row">
-                <div class="fst-italic fs-1 fw-bold text-primary">Checkout</div>
+                <div class="fst-italic fs-1 fw-bold text-info">Checkout</div>
                 <div class="col">
                     <h5 class="mx-5 text-warning">Billing details</h5>
                     <form class="row g-3 needs-validation" action="/confirm-order" method="post">
@@ -54,7 +60,7 @@
                             </div>
                             <div class="col">
                                 <label for="PhoneNumber" class="form-label">Phone Number</label>
-                                <input type="tel" class="form-control" id="PhoneNumber" name="phone" pattern="[0-9]{10}" placeholder="Format: 1234567890">
+                                <input type="tel" class="form-control" id="PhoneNumber" name="phone" required pattern="[0-9]{10}" placeholder="Format: 1234567890">
                                 <div class="invalid-feedback">
                                     Please enter a valid phone number (10 digits).
                                 </div>
@@ -77,7 +83,7 @@
                             </div>
                         </div>
                         <div class="col-12">
-                            <button type="submit" class="btn btn-primary mt-3">Complete the order</button>
+                            <button type="submit" class="btn btn-info mt-3">Complete the order</button>
                         </div>
                     </div>
                 </form>
@@ -105,12 +111,32 @@
                         <h5 class="mx-5 text-warning bold" >Total:</h5>
                         <span th:text="${total}"></span>
                     </div>
-                    <button type="submit" class="btn btn-primary mt-3 confirm-button" onclick="location.href='/orders'">Back to menu</button>
+                    <button type="submit" class="btn btn-info mt-3 confirm-button" onclick="location.href='/orders'">Back to menu</button>
                 </div>
             </div>
         </span>
     </div>
-
+<!-- Contact Us Modal -->
+<div class="modal fade" id="contactModal" tabindex="-1" role="dialog" aria-labelledby="contactModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="contactModalLabel">Contact Us</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Feel free to reach out to us!</p>
+                <p>Phone: 02-9985658</p>
+                <p>Email: support@hadarim.com</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 </body>
 </html>
