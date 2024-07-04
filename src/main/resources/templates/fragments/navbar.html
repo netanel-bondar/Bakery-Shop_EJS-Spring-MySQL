@@ -1,0 +1,55 @@
+<div th:fragment="navbar">
+    <!-- Navbar -->
+    <nav class="navbar mx-auto bg-body">
+        <div class="container-fluid navbar-collapse">
+            <div class="d-flex justify-content-center w-100">
+                <!-- Logo -->
+                <a class="navbar-brand" href="#">
+                    <img src="../pictures/logo.png" onclick="window.location.href='/'" alt="Logo">
+                </a>
+            </div>
+
+            <!-- Menu and Orders Buttons -->
+            <div>
+                <button class="btn btn-info mx-1" type="button" onclick="window.location.href='/menu'">Menu</button>
+                <button class="btn btn-info mx-1" type="button" onclick="window.location.href='/orders'">Orders</button>
+            </div>
+
+            <!-- Right-side Icons and Button -->
+            <div class="d-flex align-items-center ml-auto">
+                <!-- Home Icon -->
+                <a class="navbar-brand py-3" href="#">
+                    <img src="../pictures/house-emoji.png" onclick="window.location.href='/'" width="30" height="30" alt="Home">
+                </a>
+                <!-- Cart Icon -->
+                <a class="navbar-brand py-3" href="#">
+                    <img src="../pictures/cart.png" onclick="location.href='/checkout'" width="30" height="30" alt="Cart">
+                </a>
+                <!-- Contact Us Button (Modal Trigger) -->
+                <button class="btn btn-outline-info mx-1" type="button" data-toggle="modal" data-target="#contactModal">Contact Us</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contact Us Modal -->
+    <div class="modal fade" id="contactModal" tabindex="-1" role="dialog" aria-labelledby="contactModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="contactModalLabel">Contact Us</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Feel free to reach out to us!</p>
+                    <p>Phone: 02-9985658</p>
+                    <p>Email: support@hadarim.com</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

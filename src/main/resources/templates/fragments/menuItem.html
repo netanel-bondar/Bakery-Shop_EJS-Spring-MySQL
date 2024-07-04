@@ -1,0 +1,33 @@
+<!-- Menu Item Fragment -->
+<div class="col m-6" th:fragment="menuItem (category, foodList, foodOrders, isOrder)">
+  <!-- Category Header -->
+  <h5 class="mt-3 text-info" th:text="${category}"></h5>
+
+  <!-- Food List -->
+  <ul class="list-group list-group-flush border-bottom" th:each="food : ${foodList}">
+    <li class="list-group-item">
+      <!-- Food Name -->
+      <span th:text="${food.name}"></span>
+      <br/>
+      <!-- Food Price -->
+      <span th:text="${food.price}"></span>
+      <br/>
+      <!-- Add to Cart Button -->
+      <a class="btn" href="#">
+        <img src="../pictures/plus.png" th:attr="data-id=${food.id}" th:if="${isOrder}" th:onClick="addToCart(this)" width="30" height="30" alt="Add to Cart">
+      </a>
+
+      <!-- Food Orders List -->
+      <div class="list-group list-group-flush" th:each="foodOrder : ${foodOrders}">
+        <div class="list-group-item" th:if="${foodOrder.food.id} == ${food.id}">
+          <!-- Order Quantity -->
+          <span th:text="'Quantity: ' + ${foodOrder.quantity}"></span>
+          <!-- Decrease from Cart Button -->
+          <a class="navbar-brand px-3" href="#">
+            <img src="../pictures/minus.png" th:attr="data-id=${food.id}" th:if="${isOrder}" th:onClick="decreaseFromCart(this)" width="30" height="30" alt="Decrease from Cart">
+          </a>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>

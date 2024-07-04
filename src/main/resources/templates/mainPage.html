@@ -1,111 +1,75 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="styles.css">
-    <title>Hadarim Bakery</title>
-</head>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head (pageTitle='Hadarim Bakery')"></head>
 <body>
-    <nav class="navbar mx-auto bg-body">
-        <div class="container-fluid navbar-collapse">
-            <div class="d-flex justify-content-center w-100">
-                <a class="navbar-brand" href="#">
-                    <img src="../pictures/logo.png" alt="Logo">
-                </a>
-            </div>
-            <button class="btn btn-info mx-1" type="button" onclick="window.location.href='/menu'">Menu</button>
-            <button class="btn btn-info mx-1" type="button" onclick="window.location.href='/orders'">Orders</button>
-            <div class="d-flex align-items-center ml-auto">
-                <a class="navbar-brand py-3" href="#">
-                    <img src="../pictures/house-emoji.png" onclick="window.location.href='/'" width="30" height="30" alt="">
-                </a>
-                <a class="navbar-brand py-3" href="#">
-                    <img src="../pictures/cart.png" onclick="location.href='/checkout'" width="30" height="30" alt="">
-                </a>
-                <button class="btn btn-outline-info mx-1" type="button" data-toggle="modal" data-target="#contactModal">Contact Us</button>
-            </div>
-        </div>
-    </nav>
+<!-- Navbar Fragment -->
+    <th:block th:replace="fragments/navbar :: navbar"></th:block>
 
-    <div class="d-flex justify-content-center align-items-center text-center" style="background-image: url('/pictures/bg-home.png'); background-size: cover; background-position: center; height: 100vh">
-        <span class="container p-4 bg-body rounded border border-warning text-emphasis" id="home">
-            <h5> dynamics. Urbanity. Innovation space. </br>
-                hadarim bakery is designed in a modern urban style and attracts young people, families, businessmen and tourists. </br>
-                The bakery overlooks a view of a natural forest and the Jerusalem mountains.</br>
-                On beautiful autumn and spring days, or on bright winter days, you can sit on the balcony and inhale the clear, wine-like pine air along with the aroma of the coffee and the smell of the chef's excellent dishes, which whets the appetite.</br>
-                A casual urban atmosphere, unbuttoned and welcoming in the Jerusalem style, will welcome you whether you jump for a fragrant espresso with the morning newspaper or whether you arrive in full force for lunch or dinner.
-            </h5>
-            </br>
-            <h6> Address - Big Fashion Mall Beit Shemesh</br>
-                Activity time - </br>
-                Sunday - Thursday: 8:30 - 22:00 </br>
-                Fri: 8:30 - 13:00 </br>
-                Phone: 02-9985658 </br>
-            </h6>
-        </span>
+    <!-- Description Section -->
+    <div class="d-flex justify-content-center align-items-center text-center"
+         style="background-image: url('/pictures/bg-home.png'); background-size: cover; background-position: center; height: 100vh">
+            <span class="container p-4 bg-body rounded border border-warning text-emphasis" id="home">
+                <h5>
+                    Dynamic. Urban. Innovative Space.
+                    <p>Hadarim Bakery is designed with a modern urban aesthetic, attracting a diverse crowd including young people, families, business professionals, and tourists.
+                        The bakery offers a stunning view of a natural forest and the Jerusalem mountains.
+                    </p>
+                    <p>On beautiful autumn and spring days, or during bright winter days, you can relax on the balcony, enjoying the crisp, pine-scented air, the rich aroma of coffee, and the enticing smell of the chef's exquisite dishes. The bakery's casual, urban atmosphere is both relaxed and welcoming, embodying the spirit of Jerusalem.
+                        Whether you're stopping by for a quick espresso with the morning paper or arriving for a full lunch or dinner, you'll feel right at home.
+                    </p>
+                </h5>
+                <br/>
+                <h6>
+                    Address - Big Fashion Mall Beit Shemesh<br/>
+                    Activity time - <br/>
+                    Sunday - Thursday: 8:30 - 22:00 <br/>
+                    Fri: 8:30 - 13:00 <br/>
+                    Phone: 02-9985658 <br/>
+                </h6>
+            </span>
     </div>
 
+    <!-- Image Gallery Section -->
     <div class="container d-flex p-5">
-        <div class="row ">
+        <div class="row">
+            <!-- Image 1 -->
             <div class="col-md-4">
-                <img src="../pictures/Macarons.png" alt="Image 1" class=" h-100 w-100">
+                <img src="../pictures/Macarons.png" alt="Macarons" class="h-100 w-100">
             </div>
+            <!-- Image 2 -->
             <div class="col-md-4">
                 <img src="../pictures/modepic1.png" alt="Image 2" class="h-100 w-100">
             </div>
+            <!-- Image 3 -->
             <div class="col-md-4">
-                <img src="../pictures/Croissant.png" alt="Image 3" class=" h-100 w-100">
+                <img src="../pictures/Croissant.png" alt="Croissant" class="h-100 w-100">
             </div>
+            <!-- Image 4 -->
             <div class="col-md-4">
                 <img src="../pictures/modepic3.png" alt="Image 4" class="h-100 w-100">
             </div>
+            <!-- Image 5 -->
             <div class="col-md-4">
-                <img src="../pictures/Saint Honore.png" alt="Image 5" class="h-100 w-100">
+                <img src="../pictures/Saint Honore.png" alt="Saint Honore" class="h-100 w-100">
             </div>
+            <!-- Image 6 -->
             <div class="col-md-4">
-                <img src="../pictures/Cinnamon.png" alt="Image 6" class="h-100 w-100">
+                <img src="../pictures/Cinnamon.png" alt="Cinnamon" class="h-100 w-100">
             </div>
+            <!-- Image 7 -->
             <div class="col-md-4">
-                <img src="../pictures/tarts.png" alt="Image 7" class="h-100 w-100">
+                <img src="../pictures/tarts.png" alt="Tarts" class="h-100 w-100">
             </div>
+            <!-- Image 8 -->
             <div class="col-md-4">
-                <img src="../pictures/shakshuka.jpg" alt="Image 8" class="h-100 w-100">
+                <img src="../pictures/shakshuka.jpg" alt="Shakshuka" class="h-100 w-100">
             </div>
+            <!-- Image 9 -->
             <div class="col-md-4">
                 <img src="../pictures/modepic2.png" alt="Image 9" class="border h-100 w-100">
             </div>
         </div>
     </div>
-    <!-- Contact Us Modal -->
-    <div class="modal fade" id="contactModal" tabindex="-1" role="dialog" aria-labelledby="contactModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="contactModalLabel">Contact Us</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <p>Feel free to reach out to us!</p>
-                    <p>Phone: 02-9985658</p>
-                    <p>Email: support@hadarim.com</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
 
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-<script src="./script.js"></script>
 </body>
 </html>
