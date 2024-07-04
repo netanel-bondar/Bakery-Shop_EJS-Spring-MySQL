@@ -27,6 +27,11 @@ public class CheckoutController {
 
     @GetMapping("/checkout")
     public String showCheckoutPage(Model model) {
+
+        if (cart.getFoodOrders().isEmpty()) {
+            return "redirect:/orders";
+        }
+
         int total = cart.paymentSum();
         model.addAttribute("cart", cart);
         model.addAttribute("total", total);

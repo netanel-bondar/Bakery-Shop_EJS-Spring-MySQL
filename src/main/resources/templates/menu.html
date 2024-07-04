@@ -40,16 +40,24 @@
                                         </br>
                                         <span th:text="${food.price}"></span>
                                         </br>
+
                                         <button class="btn btn-outline-warning mt-2" th:attr="data-id=${food.id}" th:if="${isOrder}" th:onClick="addToCart(this)">
                                             <img src="plus.png" width="30" height="30" alt="">
                                         </button>
                                         <!-- Display decrease button only if food id is in cart -->
-                                        <button class="btn mt-2"
-                                                th:attr="data-id=${food.id}"
-                                                th:if="${isOrder}"
-                                                th:onClick="decreaseFromCart(this)">
+                                        <div class="list-group list-group-flush" th:each="foodOrder : ${foodOrders}">
+                                              <div class="list-group-item" th:if="${foodOrder.food.id} == ${food.id}">
+                                                <span th:text="'Quantity: ' + ${foodOrder.quantity}"></span>
+
+                                                  <button class="btn mt-2"
+                                                          th:attr="data-id=${food.id}"
+                                                          th:if="${isOrder}"
+                                                          th:onClick="decreaseFromCart(this)">
                                                 <img src="minus.png" width="30" height="30" alt="">
                                                 </button>
+                                              </div>
+                                        </div>
+
                                         </li>
                                 </ul>
                         </div>
@@ -166,7 +174,8 @@
                                         <button class="btn btn-outline-warning mt-2"
                                                 th:attr="data-id=${food.id}"
                                                 th:if="${isOrder}"
-                                                th:onClick="decreaseFromCart(this)">Decrease from cart</button>
+                                                th:onClick="decreaseFromCart(this)">Decrease from cart
+                                        </button>
                                 </li>
                             </ul>
                         </div>
@@ -207,6 +216,9 @@
                 if (!response.ok) {
                     alert('Failed to add item to cart');
                 }
+                else {
+                    location.reload();
+                }
             });
         }
         function decreaseFromCart(button) {
@@ -216,6 +228,9 @@
             }).then(response => {
                 if (!response.ok) {
                     alert('Failed to decrease item to cart');
+                }
+                else {
+                    location.reload();
                 }
             });
         }

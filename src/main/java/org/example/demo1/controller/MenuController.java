@@ -46,6 +46,8 @@ public class MenuController {
         model.addAttribute("freshjuices", repositoryFood.findFreshJuices());
         model.addAttribute("cart", cart);
 
+        model.addAttribute("foodOrders", cart.getFoodOrders());
+
         model.addAttribute("isOrder", true);
 
         return "menu";
