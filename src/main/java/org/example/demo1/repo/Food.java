@@ -3,6 +3,7 @@ package org.example.demo1.repo;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.PositiveOrZero;
 import java.io.Serializable;
 
@@ -12,6 +13,7 @@ public class Food implements Serializable {
     @Id
     private Long id;
 
+    @NotNull
     @NotEmpty
     private String name, category;
 

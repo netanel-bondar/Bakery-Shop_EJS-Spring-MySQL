@@ -28,36 +28,46 @@ public class User {
         return id;
     }
 
-    public void setId(Long id) {
+    public User setId(Long id) {
+
         this.id = id;
+        return this;
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
+    public User setName(String name) {
+
         this.name = name;
+        return this;
     }
 
     public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
+    public User setPhoneNumber(String phoneNumber) {
+
         this.phoneNumber = phoneNumber;
+        return this;
     }
 
     public OnlineDelivery getOnlineDelivery() {
         return onlineDelivery;
     }
-    public void setOnlineDelivery(OnlineDelivery onlineDelivery) {
+    public User setOnlineDelivery(OnlineDelivery onlineDelivery) {
+
         this.onlineDelivery = onlineDelivery;
+        return this;
     }
     public String getEmail() {
         return email;
     }
-    public void setEmail(String email) {
+    public User setEmail(String email) {
+
         this.email = email;
+        return this;
     }
 }

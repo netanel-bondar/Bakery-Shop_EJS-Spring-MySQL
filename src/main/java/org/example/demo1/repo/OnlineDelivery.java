@@ -23,22 +23,28 @@ public class OnlineDelivery implements Serializable {
         return id;
     }
 
-    public void setId(Long id) {
+    public OnlineDelivery setId(Long id) {
+
         this.id = id;
+        return this;
     }
 
     public List<FoodOrder> getFoodOrders() {
         return foodOrders;
     }
 
-    public void setFoodOrders(List<FoodOrder> foodOrders) {
+    public OnlineDelivery setFoodOrders(List<FoodOrder> foodOrders) {
+
         this.foodOrders = foodOrders;
+        return this;
     }
 
     public Address getAddress() {
         return address;
     }
-    public void setAddress(Address address) {
+    public OnlineDelivery setAddress(Address address) {
+
         this.address = address;
+        return this;
     }
 }

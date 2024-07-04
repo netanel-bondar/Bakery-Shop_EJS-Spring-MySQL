@@ -48,21 +48,21 @@ public class CheckoutController {
 
         // check for validation errors
         try {
-            OnlineDelivery onlineDelivery = new OnlineDelivery();
-            onlineDelivery.setFoodOrders(onlineOrders);
-            onlineDelivery.setAddress(new Address(city, street));
-            repositoryOnlineDelivery.save(onlineDelivery);
+            synchronized (RepositoryUser.class) {
+                OnlineDelivery onlineDelivery = new OnlineDelivery().setFoodOrders(onlineOrders).
+                        setAddress(new Address(city, street));
 
-            User user = new User();
-            user.setName(name);
-            user.setPhoneNumber(phone);
-            user.setOnlineDelivery(onlineDelivery);
-            user.setEmail(email);
-            repositoryUser.save(user);
+                repositoryOnlineDelivery.save(onlineDelivery);
+
+                repositoryUser.save(new User().setName(name).setPhoneNumber(phone).
+                        setOnlineDelivery(onlineDelivery).setEmail(email));
+
+                model.addAttribute("name", name);
+                model.addAttribute("orderId", onlineDelivery.getId());
+            }
 
             cart.clear();
-            model.addAttribute("name", name);
-            model.addAttribute("orderId", onlineDelivery.getId());
+
             return "orderSuccess";
         }
         catch (Exception e) {
