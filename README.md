@@ -1,28 +1,69 @@
 [Recording demo of the website](Hadarim-Bakery.mp4)<br>
 [index.html](api/index.html)
 
-# The general functionality of the website
-The website represents a bakery shop with various kinds of foods like pastris, cakes drinks etc.
-The user can watch the menu and make online deliveries.
+# BakeryShop
 
-## The pages
-1. The main page. There the user can see details about the bakery.
-2. The menu page. It has 2 modes, regular and order. In regular mode the user can see the food categories, food names and their prices.
-   In order mode the same data is displayed as well as buttons to add the food to a cart. You can add multiple portions of the same food.
-   After the user adds foods to the cart, the checkout button can be pressed to move to the checkout page. If the cart is empty, the button redirects to the current page.
-3. The checkout page. It displays the foods added to the cart and payment details. In addition, the user will need to enter details about itself and the delivery like name, address, email etc.
-   From there the user can confirm the order or go back the menu to edit the cart.
-4. The order confirmation page. The user will be thanked with its name and the order id will be displayed.
-5. The error page.
+A web-based application for a bakery storefront, built with a Spring Boot MVC architecture. It allows users to browse a menu, add items to a cart, and place orders for delivery. The project leverages Java, JavaScript, and HTML, using EJS for dynamic page generation. With server-side logic, session management for carts, and persistent data storage in MySQL, BakeryShop showcases a complete Model-View-Controller (MVC) structure, offering a seamless digital shopping experience.
 
-In all the pages there is a navbar which can take the user to almost all the pages.
+## Table of Contents
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Project Structure](#project-structure)
+- [Database Structure](#database-structure)
+- [Getting Started](#getting-started)
+- [Documentation](#documentation)
 
-# Any known bugs
-There aren't any (that we know of).
+## Features
+- **Menu Viewing**: Users can browse food categories, items, and prices.
+- **Cart Functionality**: Users can add items to a cart, adjust quantities, and view the cart.
+- **Order Processing**: Customers enter their delivery details at checkout and confirm their orders.
+- **Order Confirmation**: A confirmation page displays the order ID and a thank-you message.
+- **Error Handling**: An error page handles navigation or processing errors.
+- **Session Management**: Carts are stored in sessions, preserving data across pages.
+- **Persistent Storage**: User and order data are stored in a MySQL database using JPA with Spring Data.
 
-# How to run
-## How to initialize the website (if any DB is needed for example)
-No need to initilize any DB, just press run and have fun.
-## Any credentials (for example the admin login and password)
-username = root<br>
-password = 
+## Technologies Used
+- **Languages**: Java, JavaScript, HTML
+- **Frameworks**: Spring Boot, EJS (Embedded JavaScript templates)
+- **Database**: MySQL (managed with XAMPP)
+- **Server**: Apache (launched via XAMPP)
+- **Dependency Injection**: Managed with Spring beans
+
+## Project Structure
+The application is structured following the Spring Boot MVC design pattern:
+- **Controllers**: Handle HTTP requests and direct views.
+- **Views**: EJS templates render HTML pages dynamically on the server side.
+- **Beans**: Manage application logic and session data, with dependencies injected via Spring.
+- **Database**: Data is stored persistently in a MySQL database, managed with JPA and repository beans.
+
+## Database Structure
+The database schema for the BakeryShop project is organized as follows:
+
+- **User**: Represents users of the application and contains the primary user details. This table has a relationship with:
+  - **OnlineDelivery**: Represents individual online orders associated with a User. Each OnlineDelivery contains:
+    - **FoodOrder**: Represents each item in the order, allowing for multiple food items to be associated with one delivery. Each FoodOrder contains:
+      - **Food**: Represents the specific food item ordered (e.g., pastries, cakes, drinks).
+    - **Address**: Stores delivery address details (e.g., street, city, zip code) for each order.
+
+This structure uses JPA to manage the relationships between entities, with the following relationships:
+- `User` to `OnlineDelivery`: One-to-One
+- `OnlineDelivery` to `FoodOrder`: One-to-Many
+- `OnlineDelivery` to `Address`: One-to-One
+- `FoodOrder` to `Food`: Many-to-One
+
+## Getting Started
+To run the application locally:
+
+1. **Start XAMPP**:
+   - Open XAMPP and start both Apache and MySQL services.
+
+2. **Set Up the Database**:
+   - Open [phpMyAdmin](http://localhost/phpmyadmin) in your browser.
+   - Create a new database called `user_data` with the collation set to `utf8_general_ci`.
+
+3. **Run the Application**:
+   - In IntelliJ, run the project to start the Spring Boot server.
+   - Open a web browser and navigate to [http://localhost:8080](http://localhost:8080) to access the website.
+
+## Documentation
+The project includes an [index.html](api/index.html) file documenting the application's structure and usage.
