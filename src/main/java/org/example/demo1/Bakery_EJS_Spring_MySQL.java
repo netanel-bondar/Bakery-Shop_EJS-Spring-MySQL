@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ex5_spring_neviim_ex5_netanelbondar_hadarbitonApplication {
+public class Bakery_EJS_Spring_MySQL {
 
     public static void main(String[] args) {
-        SpringApplication.run(ex5_spring_neviim_ex5_netanelbondar_hadarbitonApplication.class, args);
+        SpringApplication.run(Bakery_EJS_Spring_MySQL.class, args);
     }
 
 }
