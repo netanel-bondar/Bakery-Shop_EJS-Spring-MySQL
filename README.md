@@ -1,5 +1,5 @@
-[index.html](api/index.html)
-[Website Demo Videol](Hadarim-Bakery-Video.mp4)
+[index.html](api/index.html)<br>
+[Website Demo Video](Hadarim-Bakery-Video.mp4)
 
 # BakeryShop
 
