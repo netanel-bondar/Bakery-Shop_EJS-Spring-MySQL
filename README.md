@@ -1,7 +1,7 @@
 [index.html](api/index.html)<br>
 [Website Demo Video](Hadarim-Bakery-Video.mp4)
 
-# BakeryShop
+# Bakery Shop
 
 A web-based application for a bakery storefront, built with a Spring Boot MVC architecture. It allows users to browse a menu, add items to a cart, and place orders for delivery. The project leverages Java, JavaScript, and HTML, using EJS for dynamic page generation. With server-side logic, session management for carts, and persistent data storage in MySQL, BakeryShop showcases a complete Model-View-Controller (MVC) structure, offering a seamless digital shopping experience.
 
