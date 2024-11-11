@@ -1,4 +1,3 @@
-[Recording demo of the website](Hadarim-Bakery.mp4)<br>
 [index.html](api/index.html)
 
 # BakeryShop
